@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Painel do Gerente</title></head>
+<body>
+    <h1>Painel do Gerente</h1>
+    <p><a href="{% url 'logout' %}">Sair</a></p>
+
+    <!-- Menu mostra só o que este perfil pode usar -->
+    <nav>
+        <ul>
+            <li>Cadastrar veículo</li>
+            <li>Definir preço e alçada</li>
+            <li>Aprovar desconto acima da alçada</li>
+            <li>Avaliar troca</li>
+        </ul>
+    </nav>
+
+    <h2>Vendedores</h2>
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>Nome</th>
+            <th>Alçada de desconto</th>
+            <th>Comissão</th>
+            <th>Ação</th>
+        </tr>
+        {% for v in vendedores %}
+        <tr>
+            <td>{{ v.usuario.get_full_name|default:v.usuario.username }}</td>
+            <td>{{ v.alcada_desconto }}%</td>
+            <td>{{ v.percentual_comissao }}%</td>
+            <td><a href="{% url 'editar_alcada_comissao' v.id %}">Editar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

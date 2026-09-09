@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Painel do Vendedor</title></head>
+<body>
+    <h1>Painel do Vendedor</h1>
+    <p><a href="{% url 'logout' %}">Sair</a></p>
+
+    <nav>
+        <ul>
+            <li>Atender cliente</li>
+            <li>Propor desconto (até {{ dados.alcada_desconto }}%)</li>
+            <li>Registrar troca</li>
+        </ul>
+    </nav>
+
+    <h2>Meus dados</h2>
+    <p>Alçada de desconto: {{ dados.alcada_desconto }}%</p>
+    <p>Comissão: {{ dados.percentual_comissao }}%</p>
+    <p><em>Estes campos só podem ser alterados pelo gerente.</em></p>
+</body>
+</html>
