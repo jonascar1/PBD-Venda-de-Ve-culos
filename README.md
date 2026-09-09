@@ -17,8 +17,8 @@ Se algum desses não estiver instalado, procure "como instalar [nome] no [seu si
 ## Passo 1 — Clonar o repositório
 
 ```bash
-git clone https://github.com/jonascar1/PBD-Venda-de-Ve-culos.git
-cd PBD-Venda-de-Ve-culos
+git clone https://github.com/jonascar1/PBD-Vendadeveiculos.git
+cd PBD-Vendadeveiculos
 git checkout development
 ```
 
