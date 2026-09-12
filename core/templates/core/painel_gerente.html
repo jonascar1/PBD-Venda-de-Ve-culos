@@ -1,36 +1,316 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Painel do Gerente</title></head>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Gerente | VENDACERTA</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/painel_gerente.css' %}">
+</head>
+
 <body>
-    <h1>Painel do Gerente</h1>
-    <p><a href="{% url 'logout' %}">Sair</a></p>
 
-    <!-- Menu mostra só o que este perfil pode usar -->
-    <nav>
-        <ul>
-            <li>Cadastrar veículo</li>
-            <li>Definir preço e alçada</li>
-            <li>Aprovar desconto acima da alçada</li>
-            <li>Avaliar troca</li>
-        </ul>
-    </nav>
+    <div class="layout">
 
-    <h2>Vendedores</h2>
-    <table border="1" cellpadding="6">
-        <tr>
-            <th>Nome</th>
-            <th>Alçada de desconto</th>
-            <th>Comissão</th>
-            <th>Ação</th>
-        </tr>
-        {% for v in vendedores %}
-        <tr>
-            <td>{{ v.usuario.get_full_name|default:v.usuario.username }}</td>
-            <td>{{ v.alcada_desconto }}%</td>
-            <td>{{ v.percentual_comissao }}%</td>
-            <td><a href="{% url 'editar_alcada_comissao' v.id %}">Editar</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>VENDA</span>CERTA
+            </div>
+
+            <div class="perfil">
+                <div class="perfil-icon">
+                    G
+                </div>
+
+                <div>
+                    <strong>Gerente</strong>
+                    <small>Administrador</small>
+                </div>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>🚗</span>
+                    Veículos
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>💰</span>
+                    Negociações
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>👥</span>
+                    Vendedores
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>🔄</span>
+                    Avaliar troca
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="menu-item">
+                    <span>⚙</span>
+                    Configurações
+                </a>
+
+                <a href="{% url 'logout' %}" class="menu-item logout">
+                    <span>↪</span>
+                    Sair
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- CABEÇALHO -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Painel do Gerente</h1>
+
+                    <p>
+                        Gerencie as operações da VENDACERTA.
+                    </p>
+                </div>
+
+                <div class="user-info">
+                    <span>Gerente</span>
+                </div>
+
+            </header>
+
+
+            <!-- AÇÕES RÁPIDAS -->
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Ações rápidas</h2>
+
+                        <p>
+                            Acesse rapidamente as principais funções.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="actions-grid">
+
+                    <a href="#" class="action-card">
+
+                        <div class="action-icon">
+                            🚗
+                        </div>
+
+                        <div>
+                            <h3>Cadastrar veículo</h3>
+
+                            <p>
+                                Adicione um novo veículo ao estoque.
+                            </p>
+                        </div>
+
+                        <span class="arrow">→</span>
+
+                    </a>
+
+
+                    <a href="#" class="action-card">
+
+                        <div class="action-icon">
+                            💰
+                        </div>
+
+                        <div>
+                            <h3>Definir preço e alçada</h3>
+
+                            <p>
+                                Configure preços e limites de desconto.
+                            </p>
+                        </div>
+
+                        <span class="arrow">→</span>
+
+                    </a>
+
+
+                    <a href="#" class="action-card">
+
+                        <div class="action-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <h3>Aprovar descontos</h3>
+
+                            <p>
+                                Analise descontos acima da alçada.
+                            </p>
+                        </div>
+
+                        <span class="arrow">→</span>
+
+                    </a>
+
+
+                    <a href="#" class="action-card">
+
+                        <div class="action-icon">
+                            🔄
+                        </div>
+
+                        <div>
+                            <h3>Avaliar troca</h3>
+
+                            <p>
+                                Avalie veículos recebidos em troca.
+                            </p>
+                        </div>
+
+                        <span class="arrow">→</span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- VENDEDORES -->
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Vendedores</h2>
+
+                        <p>
+                            Gerencie a alçada de desconto e comissão dos vendedores.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Nome</th>
+                                <th>Alçada de desconto</th>
+                                <th>Comissão</th>
+                                <th>Ação</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for v in vendedores %}
+
+                            <tr>
+
+                                <td>
+                                    <div class="seller">
+
+                                        <div class="seller-icon">
+                                            {{ v.usuario.username|first|upper }}
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                {{ v.usuario.get_full_name|default:v.usuario.username }}
+                                            </strong>
+
+                                            <small>
+                                                @{{ v.usuario.username }}
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+
+                                <td>
+                                    <span class="percentage">
+                                        {{ v.alcada_desconto }}%
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    <span class="percentage">
+                                        {{ v.percentual_comissao }}%
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <a
+                                        href="{% url 'editar_alcada_comissao' v.id %}"
+                                        class="edit-button"
+                                    >
+                                        Editar
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% empty %}
+
+                            <tr>
+
+                                <td colspan="4" class="empty">
+
+                                    Nenhum vendedor cadastrado.
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
 </body>
+
 </html>
