@@ -6,9 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
     background: #f5f7fb;
-
     color: #1f2937;
 }
 
@@ -19,7 +17,6 @@ body {
 
 .layout {
     display: flex;
-
     min-height: 100vh;
 }
 
@@ -30,19 +27,12 @@ body {
 
 .sidebar {
     width: 250px;
-
     background: #111827;
-
     color: white;
-
     display: flex;
-
     flex-direction: column;
-
     padding: 25px 18px;
-
     position: fixed;
-
     top: 0;
     bottom: 0;
     left: 0;
@@ -72,76 +62,54 @@ body {
 
 .perfil {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 12px;
-
     background: #1f2937;
-
     border-radius: 10px;
-
     margin-bottom: 25px;
 }
 
-.perfil-icon {
+.avatar {
     width: 40px;
     height: 40px;
-
     border-radius: 50%;
-
     background: #2563eb;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .perfil strong {
     display: block;
-
     font-size: 14px;
 }
 
 .perfil small {
     color: #9ca3af;
-
     font-size: 12px;
 }
 
 
 /* MENU */
 
-.menu {
+nav {
     display: flex;
-
     flex-direction: column;
-
     gap: 6px;
 }
 
-.menu-item {
+nav a {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 12px;
-
     border-radius: 8px;
-
     color: #d1d5db;
-
     text-decoration: none;
-
     font-size: 14px;
-
     transition: 0.2s;
 }
 
@@ -151,9 +119,8 @@ body {
     text-align: center;
 }
 
-.menu-item:hover {
+nav a:hover {
     background: #1f2937;
-
     color: white;
 }
 
@@ -166,17 +133,31 @@ body {
 
 /* PARTE INFERIOR */
 
-.sidebar-bottom {
+.menu-bottom {
     margin-top: auto;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 6px;
 }
 
-.menu-item.logout {
+.menu-bottom a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.menu-bottom a:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.menu-bottom .sair {
     color: #fca5a5;
 }
 
@@ -185,322 +166,209 @@ body {
    CONTEÚDO
 ============================== */
 
-.main-content {
+.content {
     margin-left: 250px;
-
     width: calc(100% - 250px);
-
     padding: 35px 45px;
 }
 
 
 /* ==============================
-   TOPBAR
+   TOPO
 ============================== */
 
-.topbar {
+.topo {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     margin-bottom: 35px;
 }
 
-.topbar h1 {
+.topo h1 {
     font-size: 28px;
-
     margin-bottom: 6px;
 }
 
-.topbar p {
+.topo p {
     color: #6b7280;
-
     font-size: 14px;
 }
 
-.user-info {
+
+/* BADGE */
+
+.badge {
     background: white;
-
     padding: 10px 16px;
-
     border-radius: 8px;
-
     border: 1px solid #e5e7eb;
-
     font-size: 14px;
-
     font-weight: bold;
 }
 
 
 /* ==============================
-   SEÇÕES
+   CARD
 ============================== */
 
-.section {
-    margin-bottom: 35px;
-}
-
-.section-header {
-    margin-bottom: 18px;
-}
-
-.section-header h2 {
-    font-size: 20px;
-
-    margin-bottom: 5px;
-}
-
-.section-header p {
-    color: #6b7280;
-
-    font-size: 14px;
+.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 850px;
 }
 
 
 /* ==============================
-   AÇÕES
+   INFORMAÇÕES DO VENDEDOR
 ============================== */
 
-.actions-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
-}
-
-.action-card {
-    background: white;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
-    padding: 20px;
-
+.vendedor-info {
     display: flex;
-
     align-items: center;
-
-    gap: 15px;
-
-    text-decoration: none;
-
-    color: inherit;
-
-    transition: 0.2s;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.action-card:hover {
-    border-color: #2563eb;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+.avatar.vendedor {
+    width: 45px;
+    height: 45px;
+    background: #dbeafe;
+    color: #2563eb;
 }
 
-.action-icon {
-    width: 48px;
-    height: 48px;
-
-    border-radius: 10px;
-
-    background: #eff6ff;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 21px;
-
-    flex-shrink: 0;
+.vendedor-info h2 {
+    font-size: 16px;
 }
 
-.action-card h3 {
-    font-size: 15px;
-
-    margin-bottom: 5px;
-}
-
-.action-card p {
-    color: #6b7280;
-
-    font-size: 12px;
-
-    line-height: 1.4;
-}
-
-.arrow {
-    margin-left: auto;
-
-    font-size: 20px;
-
+.vendedor-info p {
     color: #9ca3af;
+    font-size: 12px;
+    margin-top: 3px;
 }
 
 
 /* ==============================
-   TABELA
+   CAMPOS
 ============================== */
 
-.table-container {
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.descricao {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+
+/* INPUT PERCENTUAL */
+
+.input-percentual {
+    display: flex;
+    align-items: center;
+    width: 250px;
     background: white;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
     overflow: hidden;
 }
 
-table {
+.input-percentual:focus-within {
+    border-color: #2563eb;
+}
+
+.input-percentual input {
     width: 100%;
-
-    border-collapse: collapse;
+    border: none;
+    outline: none;
+    padding: 11px 12px;
+    font-size: 14px;
 }
 
-thead {
-    background: #f9fafb;
-}
-
-th {
-    text-align: left;
-
-    padding: 15px 18px;
-
-    font-size: 12px;
-
+.input-percentual span {
+    padding-right: 12px;
     color: #6b7280;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.5px;
-}
-
-td {
-    padding: 15px 18px;
-
-    border-top: 1px solid #e5e7eb;
-
     font-size: 14px;
 }
 
 
-/* VENDEDOR */
+/* ==============================
+   AVISO
+============================== */
 
-.seller {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.seller-icon {
-    width: 35px;
-    height: 35px;
-
-    border-radius: 50%;
-
-    background: #dbeafe;
-
-    color: #2563eb;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-weight: bold;
-}
-
-.seller strong {
-    display: block;
-
-    font-size: 14px;
-}
-
-.seller small {
-    display: block;
-
-    color: #9ca3af;
-
-    font-size: 11px;
-
-    margin-top: 2px;
-}
-
-
-/* PORCENTAGEM */
-
-.percentage {
-    font-weight: bold;
-
-    color: #374151;
-}
-
-
-/* BOTÃO EDITAR */
-
-.edit-button {
-    display: inline-block;
-
-    padding: 7px 13px;
-
-    border-radius: 6px;
-
+.aviso {
     background: #eff6ff;
-
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 13px 15px;
     color: #2563eb;
-
-    text-decoration: none;
-
     font-size: 12px;
+    margin-top: 5px;
+}
 
-    font-weight: bold;
 
+/* ==============================
+   BOTÕES
+============================== */
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* CANCELAR */
+
+.btn-voltar {
+    display: inline-block;
+    padding: 9px 15px;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    text-decoration: none;
+    font-size: 13px;
     transition: 0.2s;
 }
 
-.edit-button:hover {
+.btn-voltar:hover {
+    background: #f9fafb;
+}
+
+
+/* SALVAR */
+
+.btn-salvar {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 6px;
     background: #2563eb;
-
     color: white;
-}
-
-
-/* SEM VENDEDORES */
-
-.empty {
-    text-align: center;
-
-    padding: 30px;
-
-    color: #9ca3af;
-}
-
-/* ==============================
-   MENSAGENS
-============================== */
-
-.messages {
-    margin-bottom: 18px;
-}
-
-.message {
-    padding: 12px 15px;
-    border-radius: 8px;
     font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.message-success {
-    background: #eff6ff;
-    border: 1px solid #dbeafe;
-    color: #2563eb;
+.btn-salvar:hover {
+    background: #1d4ed8;
 }
 
 
@@ -514,16 +382,10 @@ td {
         width: 210px;
     }
 
-    .main-content {
+    .content {
         margin-left: 210px;
-
         width: calc(100% - 210px);
-
         padding: 30px;
-    }
-
-    .actions-grid {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -532,9 +394,7 @@ td {
 
     .sidebar {
         position: static;
-
         width: 100%;
-
         min-height: auto;
     }
 
@@ -542,31 +402,33 @@ td {
         flex-direction: column;
     }
 
-    .main-content {
+    .content {
         margin-left: 0;
-
         width: 100%;
-
         padding: 25px 18px;
     }
 
-    .topbar {
+    .topo {
         align-items: flex-start;
-
         gap: 15px;
-
         flex-direction: column;
     }
 
-    .actions-grid {
-        grid-template-columns: 1fr;
+    .card {
+        max-width: 100%;
     }
 
-    .table-container {
-        overflow-x: auto;
+    .input-percentual {
+        width: 100%;
     }
 
-    table {
-        min-width: 600px;
+    .acoes {
+        justify-content: stretch;
+    }
+
+    .btn-voltar,
+    .btn-salvar {
+        flex: 1;
+        text-align: center;
     }
 }

@@ -26,12 +26,12 @@
 
             <div class="perfil">
                 <div class="perfil-icon">
-                    G
+                    {{ request.user.first_name|first|upper }}
                 </div>
 
                 <div>
-                    <strong>Gerente</strong>
-                    <small>Administrador</small>
+                    <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+                    <small>Gerente</small>
                 </div>
             </div>
 
@@ -89,10 +89,7 @@
 
                 <div>
                     <h1>Painel do Gerente</h1>
-
-                    <p>
-                        Gerencie as operações da VENDACERTA.
-                    </p>
+                    <p>Olá, {{ request.user.get_full_name|default:request.user.username }}!</p>
                 </div>
 
                 <div class="user-info">
@@ -100,6 +97,17 @@
                 </div>
 
             </header>
+
+             <!-- MENSAGENS -->
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message message-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
 
             <!-- AÇÕES RÁPIDAS -->

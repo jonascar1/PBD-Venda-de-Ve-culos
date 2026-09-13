@@ -1,21 +1,247 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Painel do Vendedor</title></head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Vendedor | VENDACERTA</title>
+
+    <link rel="stylesheet" href="{% static 'core/css/painel_vendedor.css' %}">
+</head>
+
 <body>
-    <h1>Painel do Vendedor</h1>
-    <p><a href="{% url 'logout' %}">Sair</a></p>
 
-    <nav>
-        <ul>
-            <li>Atender cliente</li>
-            <li>Propor desconto (até {{ dados.alcada_desconto }}%)</li>
-            <li>Registrar troca</li>
-        </ul>
-    </nav>
+    <aside class="sidebar">
 
-    <h2>Meus dados</h2>
-    <p>Alçada de desconto: {{ dados.alcada_desconto }}%</p>
-    <p>Comissão: {{ dados.percentual_comissao }}%</p>
-    <p><em>Estes campos só podem ser alterados pelo gerente.</em></p>
+        <div class="logo">
+            <span>VENDA</span>CERTA
+        </div>
+
+        <div class="perfil">
+            <div class="avatar">
+                {{ request.user.first_name|first|upper }}
+            </div>
+
+            <div>
+                <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+                <span>Vendedor</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="#" class="ativo">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>👤</span>
+                Clientes
+            </a>
+
+            <a href="#">
+                <span>🚗</span>
+                Veículos
+            </a>
+
+            <a href="#">
+                <span>💰</span>
+                Negociações
+            </a>
+
+            <a href="#">
+                <span>🔄</span>
+                Registrar troca
+            </a>
+
+        </nav>
+
+        <div class="menu-inferior">
+
+            <a href="#">
+                ⚙ Configurações
+            </a>
+
+            <a href="{% url 'logout' %}" class="sair">
+                ↪ Sair
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main class="conteudo">
+
+        <header class="topo">
+
+            <div>
+                <h1>Painel do Vendedor</h1>
+                <p>Olá, {{ request.user.get_full_name|default:request.user.username }}!</p>
+            </div>
+
+            <div class="cargo">
+                Vendedor
+            </div>
+
+        </header>
+
+
+        <section>
+
+            <div class="titulo-secao">
+                <h2>Ações rápidas</h2>
+                <p>Acesse rapidamente as principais funções.</p>
+            </div>
+
+
+            <div class="cards-acoes">
+
+                <a href="#" class="card-acao">
+
+                    <div class="icone">
+                        👤
+                    </div>
+
+                    <div class="card-texto">
+                        <strong>Atender cliente</strong>
+                        <span>Cadastre e consulte clientes.</span>
+                    </div>
+
+                    <div class="seta">
+                        →
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="card-acao">
+
+                    <div class="icone">
+                        🚗
+                    </div>
+
+                    <div class="card-texto">
+                        <strong>Consultar veículos</strong>
+                        <span>Veja os veículos disponíveis no estoque.</span>
+                    </div>
+
+                    <div class="seta">
+                        →
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="card-acao">
+
+                    <div class="icone">
+                        💰
+                    </div>
+
+                    <div class="card-texto">
+                        <strong>Nova negociação</strong>
+                        <span>Crie uma proposta para seu cliente.</span>
+                    </div>
+
+                    <div class="seta">
+                        →
+                    </div>
+
+                </a>
+
+
+                <a href="#" class="card-acao">
+
+                    <div class="icone">
+                        🔄
+                    </div>
+
+                    <div class="card-texto">
+                        <strong>Registrar troca</strong>
+                        <span>Informe um veículo recebido como troca.</span>
+                    </div>
+
+                    <div class="seta">
+                        →
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="dados-section">
+
+            <div class="titulo-secao">
+
+                <h2>Meus dados</h2>
+
+                <p>
+                    Informações definidas pelo gerente.
+                </p>
+
+            </div>
+
+
+            <div class="dados-grid">
+
+                <div class="dado">
+
+                    <span>Alçada de desconto</span>
+
+                    <strong>
+                        {{ dados.alcada_desconto }}%
+                    </strong>
+
+                    <small>
+                        Limite de desconto permitido
+                    </small>
+
+                </div>
+
+
+                <div class="dado">
+
+                    <span>Comissão</span>
+
+                    <strong>
+                        {{ dados.percentual_comissao }}%
+                    </strong>
+
+                    <small>
+                        Percentual de comissão
+                    </small>
+
+                </div>
+
+
+                <div class="aviso">
+
+                    <span>🔒</span>
+
+                    <div>
+                        <strong>Dados protegidos</strong>
+
+                        <p>
+                            Sua alçada e comissão só podem ser
+                            alteradas pelo gerente.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
